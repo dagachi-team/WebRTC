@@ -1,0 +1,21 @@
+{
+  "name": "webrtc-Lobby",
+  "version": "1.0.0",
+  "description": "WebRTC 로비",
+  "type": "commonjs",
+  "main": "app.mjs",
+  "scripts": {
+    "dev": "nodemon app.mjs"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "mongodb": "^7.4.0",
+    "socket.io": "^4.8.3"
+  }
+}
