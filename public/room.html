@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>DAGAWA 화상채팅</title>
+
+  <!-- CSS 분리 -->
+  <link rel="stylesheet" href="./css/chatStyle.css" />
+</head>
+
+<body>
+  <main class="app">
+    <!-- 상단 영역 -->
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">WEBRTC VIDEO CHAT</p>
+        <h1>DAGAWA 화상채팅</h1>
+      </div>
+
+      <p id="status" class="status">대기 중...</p>
+    </header>
+
+    <!-- 방 입장 영역 -->
+    <section class="room-panel">
+      <div class="room-input-wrap">
+        <label for="roomInput">방 이름</label>
+        <input id="roomInput" value="" placeholder="방 이름을 입력하세요" disabled />
+      </div>
+      <button id="leaveBtn" class="leave-btn" disabled>방 나가기</button>
+      <!-- <button id="joinBtn" class="join-btn">방 입장</button> -->
+    </section>
+
+    <!-- 메인 화상 영역 -->
+    <section id="videoStage" class="video-stage">
+      <!-- 상대방 큰 화면 -->
+      <article id="remoteCard" class="video-card remote-card">
+        <video id="remoteVideo" autoplay playsinline></video>
+
+        <div class="video-info">
+          <span class="live-dot"></span>
+          <span>상대방 화면</span>
+        </div>
+
+        <div class="click-guide">큰 화면 클릭 시 전체화면</div>
+      </article>
+
+      <!-- 내 화면 작은 화면 -->
+      <article id="localCard" class="video-card local-card">
+        <video id="localVideo" autoplay playsinline muted></video>
+
+        <div class="video-info">
+          <span class="live-dot my-dot"></span>
+          <span>내 화면</span>
+        </div>
+
+        <div class="click-guide">클릭 시 크게 보기</div>
+      </article>
+       <!-- 화면 공유 -->
+      <article id="screenShareCard" class="screen-share-card" hidden>
+        <div id="screenShareWaiting" class="screen-share-waiting">
+          <strong>화면 공유 중</strong>
+          <p>공유 화면을 시청하시겠습니까?</p>
+
+          <button id="watchScreenBtn">
+            화면 공유 시청하기
+          </button>
+        </div>
+
+        <video id="screenShareVideo" autoplay playsinline muted hidden>
+        </video>
+
+        <button id="leaveScreenViewBtn" class="leave-screen-view-btn" hidden>
+          시청 나가기
+        </button>
+      </article>
+
+      <aside id="controlPanel" class="control-panel">
+        <!-- 작게 접혔을 때 보이는 버튼 -->
+        <button id="controlToggleBtn" class="control-toggle-btn" title="오디오 설정">
+          <span id="controlToggleIcon">🎚️</span>
+        </button>
+
+        <!-- 펼쳤을 때 보이는 설정 내용 -->
+        <div class="control-body">
+          <div class="control-header">
+            <strong>오디오 설정</strong>
+            <button id="controlCloseBtn" class="control-close-btn" title="닫기">×</button>
+          </div>
+
+          <div class="select-group">
+            <label for="micSelect">마이크</label>
+            <select id="micSelect">
+              <option value="">기본 마이크</option>
+            </select>
+          </div>
+
+          <div class="select-group">
+            <label for="speakerSelect">스피커</label>
+            <select id="speakerSelect">
+              <option value="">기본 스피커</option>
+            </select>
+          </div>
+
+          <button id="shareScreenBtn">🖥️ 화면 공유</button>
+
+          <div class="volume-row">
+            <div class="vertical-control">
+              <span>상대방</span>
+              <input id="remoteVolume" class="vertical-range" type="range" min="0" max="1" step="0.1" value="0.5" />
+              <small>소리</small>
+            </div>
+
+            <div class="vertical-control">
+              <span>내 마이크</span>
+              <input id="micVolume" class="vertical-range" type="range" min="0" max="2" step="0.1" value="1" />
+              <small>음량</small>
+            </div>
+          </div>
+
+          <div class="audio-button-row">
+            <button id="remoteMuteBtn" class="audio-icon-btn" type="button" title="상대방 소리 끄기">
+              <span id="remoteMuteIcon">🔊</span>
+            </button>
+
+            <button id="muteBtn" class="audio-icon-btn" type="button" title="마이크 끄기">
+              <span id="muteIcon">🎙️</span>
+            </button>
+
+            <!-- 카메라 켜기/끄기 -->
+            <button id="cameraToggleBtn" class="audio-icon-btn" type="button" title="카메라 끄기">
+              <span id="cameraToggleIcon">📷</span>
+            </button>
+
+            <!-- 전면/후면 카메라 전환 -->
+            <button id="switchCameraBtn" class="audio-icon-btn" type="button" title="전면/후면 카메라 전환">
+              <span>🔄</span>
+            </button>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/js/chat.js"></script>
+</body>
+
+</html>

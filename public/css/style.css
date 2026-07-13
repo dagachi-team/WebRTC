@@ -1,0 +1,167 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    color: #222;
+}
+
+main {
+    max-width: 540px;
+    width: 94%;
+    margin: 0 auto;
+    padding: 0 20px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 28px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+#signupForm {
+    width: 100%;
+}
+
+/* radio 버튼 */
+.roleBox {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 14px;
+}
+
+.roleOption {
+    flex: 1;
+}
+
+/* 기본 radio 버튼 숨기기 */
+.roleOption input {
+    display: none;
+}
+
+.roleOption label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 44px;
+
+    border: 1px solid #cfcfcf;
+    color: #777;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+/* 선택된 버튼 */
+.roleOption input:checked + label {
+    border-color: #111;
+    background-color: #111;
+    color: #fff;
+}
+
+/* 공통 input */
+.inputBox {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+
+.inputBox input[type="text"],
+.inputBox input[type="password"],
+.inputBox input[type="email"] {
+    width: 100%;
+    height: 44px;
+    padding: 0 12px;
+    border: 1px solid #cfcfcf;
+    font-size: 14px;
+    outline: none;
+}
+
+.inputBox input:focus {
+    border-color: #333;
+}
+
+/* 중복확인 버튼 */
+#duplBtn {
+    width: 96px;
+    height: 44px;
+    border: none;
+    background-color: #111;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+#duplBtn:hover {
+    background-color: #333;
+}
+
+/* 회원가입 입력 폼 오류 시 */
+.inputBox input.check-fail {
+    border-color: #ff4d4d;
+}
+
+/* 중복확인 성공 */
+#userid.check-success {
+    border-color: #4caf50;
+}
+
+/*submit 버튼 */
+.submitBtn {
+    width: 100%;
+    height: 46px;
+    border: none;
+    background-color: #ccc;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+}           
+
+.submitBtn.active,
+.submitBtn:hover {
+    background-color: #111;
+}
+
+/* 로그인창, 회원가입창 돌아가기 */
+.linkBox {
+    margin-top: 18px;
+    font-size: 13px;
+    color: #aaa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.linkBox a {
+    margin-left: 8px;
+    color: #111;
+    text-decoration: underline;
+}
+
+.linkBox a:last-child {
+    display: inline-block;
+    width: fit-content;
+}
+
+@media (max-width: 480px) {
+    .signupWrap {
+        margin-top: 40px;
+    }
+
+    .inputBox {
+        gap: 6px;
+    }
+
+    #duplBtn {
+        width: 86px;
+        font-size: 13px;
+    }
+}

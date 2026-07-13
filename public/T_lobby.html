@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화상채팅방 로비 (선생님용)</title>
+    <link rel="stylesheet" href="/css/T_lobby.css">
+</head>
+<body>
+    <div class="lobby-container">
+        <section class="room-section">
+            <h1 class="section-title">화상채팅방 목록</h1>
+            <div class="filter-row">
+                <select id="subjectFilter" class="filter-select">
+                    <option value="all">모든 과목</option>
+                    <option value="국어">국어</option>
+                    <option value="영어">영어</option>
+                    <option value="수학">수학</option>
+                    <option value="사회">사회</option>
+                    <option value="과학">과학</option>
+                </select>
+                
+                <select id="levelFilter" class="filter-select">
+                    <option value="all">모든 수준</option>
+                    <option value="초등학생">초등학생</option>
+                    <option value="중학생">중학생</option>
+                    <option value="고등학생">고등학생</option>
+                </select>
+            </div>
+            
+            <div class="gray-background room-area">
+                <div class="room-grid" id="roomGrid">
+                    </div>
+                
+                <div class="room-actions">
+                    <button id="createRoomBtn" class="create-room-btn">방 생성</button>
+                </div>
+            </div>
+        </section>
+
+        <aside class="sidebar-section">
+            <div class="users-container">
+                <h1 class="section-title">접속자</h1>
+                <div class="gray-background user-content">
+                    <div class="user-summary" id="userCounts"></div>
+                    <hr class="divider">
+                    <div class="user-list" id="userList"></div>
+                </div>
+            </div>
+
+            <div class="chat-container">
+                <h1 class="section-title">채팅</h1>
+                <div class="channel-row">
+                    <label for="channelSelect">채널 선택: </label>
+                    <select id="channelSelect" class="channel-select">
+                        <option value="lobby">로비</option>
+                        <option value="korean">국어</option>
+                        <option value="english">영어</option>
+                        <option value="math">수학</option>
+                        <option value="society">사회</option>
+                        <option value="science">과학</option>
+                    </select>
+                </div>
+                <div class="gray-background chat-content">
+                    <div class="chat-history" id="chatBox"></div>
+                    <div class="chat-input-row">
+                        <select class="chat-target" id="chatTarget">
+                            <option value="all">[전체]</option>
+                            <option value="whisper">[귓속말]</option>
+                        </select>
+
+                        <input type="text" class="chat-target-input" id="chatTargetInput" placeholder="상대방 닉네임" style="display: none; width: 90px;" autocomplete="off">
+
+                        <input type="text" class="chat-input" id="chatInput" placeholder="메시지를 입력하세요" autocomplete="off">
+                        <button class="send-btn" id="sendBtn">전송</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div> 
+    <!-- 방 생성 시 ui 추가-->
+    <div id="createRoomModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <h2>새 과외방 개설</h2>
+            
+            <div class="input-group">
+                <label for="roomTitleInput">방 제목</label>
+                <input type="text" id="roomTitleInput" placeholder="예: 즐거운 기초 수학 강의!" autocomplete="off">
+            </div>
+            
+            <div class="input-group">
+                <label for="roomSubjectSelect">과목 선택</label>
+                <select id="roomSubjectSelect">
+                    <option value="국어">국어</option>
+                    <option value="영어">영어</option>
+                    <option value="수학">수학</option>
+                    <option value="사회">사회</option>
+                    <option value="과학">과학</option>
+                </select>
+            </div>
+            
+            <div class="input-group">
+                <label for="roomLevelSelect">수준 선택</label>
+                <select id="roomLevelSelect">
+                    <option value="초등학생">초등학생</option>
+                    <option value="중학생">중학생</option>
+                    <option value="고등학생">고등학생</option>
+                </select>
+            </div>
+            
+            <div class="modal-actions">
+                <button id="cancelCreateBtn" class="btn-cancel">취소</button>
+                <button id="confirmCreateBtn" class="btn-confirm">방 만들기</button>
+            </div>
+        </div>
+    </div>
+    <!-- ================================================ -->
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/lobby.js"></script>
+    <script>
+
+        const tk = localStorage.getItem("token")
+        if (!tk) {
+        alert("로그인 정보가 없습니다. 로그인 페이지로 이동합니다.");
+        }
+
+    </script>
+</body>
+</html>
