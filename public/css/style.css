@@ -1,10 +1,76 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
+    font-family: 'Pretendard', sans-serif;
     background-color: #ffffff;
     color: #222;
 }
@@ -13,7 +79,7 @@ main {
     max-width: 540px;
     width: 94%;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 50px;
     text-align: center;
 }
 
@@ -55,12 +121,13 @@ h2 {
     color: #777;
     font-size: 14px;
     cursor: pointer;
+    border-radius: 8px;
 }
 
 /* 선택된 버튼 */
 .roleOption input:checked + label {
-    border-color: #111;
-    background-color: #111;
+    border-color: #002c99;
+    background-color: #002c99;
     color: #fff;
 }
 
@@ -80,10 +147,20 @@ h2 {
     border: 1px solid #cfcfcf;
     font-size: 14px;
     outline: none;
+    border-radius: 8px;
 }
 
+#inputBtn[name="duplBtn"]{
+    width: auto;
+    border: none;
+    background-color: #ccc;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 10px;
+}
 .inputBox input:focus {
-    border-color: #333;
+    border-color: #002c99;
 }
 
 /* 중복확인 버튼 */
@@ -100,7 +177,7 @@ h2 {
 }
 
 #duplBtn:hover {
-    background-color: #333;
+    background-color: #002c99;
 }
 
 /* 회원가입 입력 폼 오류 시 */
@@ -123,11 +200,13 @@ h2 {
     font-size: 15px;
     font-weight: 500;
     cursor: pointer;
+    border-radius: 8px;
 }           
 
 .submitBtn.active,
-.submitBtn:hover {
-    background-color: #111;
+.submitBtn:hover,
+#inputBtn[name="duplBtn"]:hover{
+    background-color: #002c99;
 }
 
 /* 로그인창, 회원가입창 돌아가기 */

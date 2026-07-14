@@ -1,3 +1,66 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -5,11 +68,12 @@
 }
 
 body {
-    font-family: 'Pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
-    background-color: #f7f6f3; /* 따뜻하고 차분한 아이보리/연그레이 */
-    color: #4a4a4a;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fefefe; 
+    color: #222;
     padding: 30px;
 }
+
 
 /* 전체 컨테이너 */
 .lobby-container {
@@ -17,21 +81,30 @@ body {
     gap: 30px;
     max-width: 1200px;
     margin: 0 auto;
-    height: 90vh;
+    height: 88vh;
 }
 
 /* 공통 스타일 */
 .section-title {
     font-size: 22px;
     font-weight: 600;
-    color: #5c5c5c;
+    color: #121212;
     margin-bottom: 16px;
     padding-left: 4px;
     letter-spacing: -0.5px;
+    width: 50%;
+}
+
+.sidebar-section .section-title {
+    margin-bottom: 25px;
+}
+
+.chat-container .section-title {
+    margin-top: 6px;
 }
 
 .gray-background {
-    background-color: #ebeae6; 
+    background-color: #f2f3f6; 
     padding: 24px;
     border-radius: 20px; 
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02); 
@@ -48,7 +121,8 @@ body {
 .room-section {
     flex: 2;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
 }
 
 /* 방 목록과 버튼을 묶어주는 영역 (핵심 레이아웃) */
@@ -56,6 +130,9 @@ body {
     flex: 1;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 100%;
+    justify-content: space-between;
 }
 
 .room-grid {
@@ -66,7 +143,6 @@ body {
     gap: 20px;
     align-content: start;
     overflow-y: auto;
-    padding-right: 8px; 
     margin-bottom: 20px; /* 버튼과의 간격 */
 }
 
@@ -79,10 +155,10 @@ body {
 
 /* 방 참가 버튼 디자인 */
 .join-room-btn {
-    background-color: #8c9bb0; 
+    background-color: #203f8f; 
     color: white;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     padding: 10px 24px;
     font-size: 15px;
     font-weight: 600;
@@ -92,7 +168,7 @@ body {
 }
 
 .join-room-btn:hover {
-    background-color: #7a8b9e;
+    background-color: #002c99;
     transform: translateY(-2px); 
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
 }
@@ -142,7 +218,7 @@ body {
     height: 10px;
     border-radius: 50%;
 }
-.status-dot.green { background-color: #8fb38f; } 
+.status-dot.green { background-color: #78b378; } 
 .status-dot.red { background-color: #d48a8a; } 
 
 .host-name {
@@ -169,14 +245,14 @@ body {
 
 
 .subject-tag {
-    background-color: #e3e7ee;
-    color: #536279;
+    background-color: #e4eeff;
+    color: #4e6a95;
 }
 
 
 .level-tag {
-    background-color: #eeeae2;
-    color: #726857;
+    background-color: #fff3da;
+    color: #7d6e54;
 }
 
 /* -----------------------------
@@ -246,7 +322,7 @@ body {
 
 .chat-container {
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     flex: 1; 
 }
 
@@ -255,6 +331,8 @@ body {
     flex-direction: column;
     flex: 1;
     padding-bottom: 15px;
+    width: 100%;
+    height: 100%;
 }
 
 .chat-history {
@@ -307,18 +385,19 @@ body {
 .chat-input::placeholder { color: #bbb; }
 
 .send-btn {
-    background-color: #a3b1c6; 
+    background-color: #203f8f; 
     color: white;
     border: none;
-    border-radius: 10px;
-    padding: 6px 16px;
+    border-radius: 8px;
+    padding: 9px 16px 12px;
     cursor: pointer;
     font-size: 14px;
     font-weight: 600;
     transition: background-color 0.2s;
+    word-break: keep-all;
 }
 
-.send-btn:hover { background-color: #8c9bb0; }
+.send-btn:hover { background-color: #203f8f; }
 
 /* -----------------------------
    방 참가 모달 (팝업) 스타일
@@ -369,7 +448,7 @@ body {
     width: 100%;
     padding: 12px 16px;
     border: 1px solid #ddd;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 15px;
     outline: none;
     transition: border-color 0.2s;
@@ -377,7 +456,7 @@ body {
 }
 
 .modal-input-group input:focus {
-    border-color: #8c9bb0; 
+    border-color: #203f8f; 
 }
 
 .modal-actions {
@@ -389,7 +468,7 @@ body {
     flex: 1;
     padding: 12px;
     border: none;
-    border-radius: 12px;
+    border-radius: 8px;
     font-size: 15px;
     font-weight: 600;
     cursor: pointer;
@@ -399,8 +478,8 @@ body {
 .cancel-btn { background-color: #f0eee9; color: #666; }
 .cancel-btn:hover { background-color: #e2dfd8; }
 
-.confirm-btn { background-color: #8c9bb0; color: white; }
-.confirm-btn:hover { background-color: #7a8b9e; }
+.confirm-btn { background-color: #203f8f; color: white; }
+.confirm-btn:hover { background-color: #002c99; }
 
 /* //====== [수정] 필터, 채널, 방 생성 모달 드롭다운(Select) 동글동글 귀엽게! ====== */
 
@@ -411,10 +490,10 @@ body {
     padding: 10px 36px 10px 16px; /* 안쪽 여백을 넉넉하게 주어 통통하게 만듦 */
     font-size: 0.95rem;
     font-weight: 600; /* 글씨를 살짝 굵게 해서 귀여운 느낌 강조 */
-    color: #405f4a; /* 텍스트 색상을 칙칙한 까만색 대신 산뜻한 파란색으로! */
+    color: #203f8f; /* 텍스트 색상을 칙칙한 까만색 대신 산뜻한 파란색으로! */
     background-color: #f8f9fa; /* 아주 옅은 회색 배경 */
     border: 2px solid #e5e5e5; /* 테두리를 살짝 두껍게(2px) 해서 부드러운 느낌 */
-    border-radius: 25px; /* 🌟 핵심! 완전 동그란 알약 모양 */
+    border-radius: 8px; /* 🌟 핵심! 완전 동그란 알약 모양 */
     cursor: pointer;
     outline: none;
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); /* 애니메이션을 부드럽고 통통 튀게 */
@@ -455,15 +534,23 @@ body {
     display: flex;
     gap: 12px;
     margin-bottom: 15px;
+    width: 50%;
+    text-align: right;
+    justify-content: flex-end;
 }
 
-/* 5. 채널 선택 컨테이너 레이아웃 (유지) */
+/* 5. 채널 선택 컨테이너 레이아웃 */
 .channel-row {
     display: flex;
     align-items: center;
     gap: 12px;
     margin-bottom: 15px;
     font-weight: 600;
-    color: #495057;
+    color: #222;
+    width: 50%;
+    justify-content: flex-end;
 }
-/* //====== ======================================================================= ====== */
+
+.channel-row > label{
+    display: none;
+}

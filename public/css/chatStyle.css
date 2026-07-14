@@ -1,3 +1,71 @@
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Regular.woff2') format('woff2');
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Bold.woff2') format('woff2');
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-display: swap;
+}
+
+
+/* ==============================
+   공통 설정
+============================== */
+
 * {
     box-sizing: border-box;
 }
@@ -5,12 +73,8 @@
 body {
     margin: 0;
     min-height: 100vh;
-    font-family: Arial, sans-serif;
-    color: #f8fafc;
-    background:
-        radial-gradient(circle at top left, rgba(59, 130, 246, 0.35), transparent 34%),
-        radial-gradient(circle at bottom right, rgba(147, 51, 234, 0.28), transparent 30%),
-        #020617;
+    font-family: 'Pretendard', sans-serif;
+    background-color: #fefefe;
 }
 
 button,
@@ -19,697 +83,22 @@ select {
     font-family: inherit;
 }
 
-.app {
-    width: min(1380px, 100%);
-    margin: 0 auto;
-    padding: 24px;
-}
 
-.topbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    gap: 20px;
-    margin-bottom: 18px;
-}
+/* ==============================
+   전체 영역
+============================== */
 
-.eyebrow {
-    margin: 0 0 6px;
-    font-size: 12px;
-    letter-spacing: 0.18em;
-    color: #93c5fd;
-}
-
-h1 {
-    margin: 0;
-    font-size: clamp(28px, 4vw, 46px);
-    letter-spacing: -0.04em;
-}
-
-.status {
-    min-width: 220px;
-    margin: 0;
-    padding: 12px 16px;
-    border: 1px solid rgba(148, 163, 184, 0.28);
-    border-radius: 999px;
-    color: #dbeafe;
-    background: rgba(15, 23, 42, 0.68);
-    text-align: center;
-    backdrop-filter: blur(12px);
-}
-
-.room-panel {
-    display: flex;
-    gap: 12px;
-    align-items: flex-end;
-    margin-bottom: 18px;
-    padding: 14px;
-    border: 1px solid rgba(148, 163, 184, 0.24);
-    border-radius: 22px;
-    background: rgba(15, 23, 42, 0.58);
-    backdrop-filter: blur(16px);
-}
-
-.room-input-wrap {
-    flex: 1;
-}
-
-.room-input-wrap label,
-.select-group label {
-    display: block;
-    margin-bottom: 7px;
-    font-size: 13px;
-    color: #bfdbfe;
-}
-
-#roomInput,
-select {
-    width: 100%;
-    height: 44px;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 14px;
-    padding: 0 14px;
-    color: #f8fafc;
-    background: rgba(2, 6, 23, 0.78);
-    outline: none;
-}
-
-#roomInput:focus,
-select:focus {
-    border-color: #60a5fa;
-    box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.22);
-}
-
-.join-btn {
-    height: 44px;
-    border: 0;
-    border-radius: 14px;
-    padding: 0 24px;
-    color: #020617;
-    font-weight: 800;
-    background: linear-gradient(135deg, #60a5fa, #a78bfa);
-    cursor: pointer;
-    transition: transform 0.18s ease, opacity 0.18s ease;
-}
-
-.join-btn:hover {
-    transform: translateY(-1px);
-}
-
-.join-btn:disabled {
-    opacity: 0.55;
-    cursor: not-allowed;
-    transform: none;
-}
-
-.video-stage {
-    position: relative;
-    min-height: calc(100vh - 210px);
-    border: 1px solid rgba(148, 163, 184, 0.22);
-    border-radius: 28px;
-    overflow: hidden;
-    background: #020617;
-    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
-}
-
-.video-card {
-    position: absolute;
-    overflow: hidden;
-    border-radius: 24px;
-    background: #000;
-    transition:
-        inset 0.28s ease,
-        width 0.28s ease,
-        height 0.28s ease,
-        transform 0.28s ease,
-        border-radius 0.28s ease;
-}
-
-.video-card video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    background: #000;
-}
-
-.remote-card {
-    inset: 0;
-    z-index: 1;
-    border-radius: 0;
-}
-
-.local-card {
-    width: 280px;
-    height: 175px;
-    right: 24px;
-    bottom: 24px;
-    z-index: 5;
-    border: 2px solid rgba(255, 255, 255, 0.22);
-    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45);
-    cursor: pointer;
-}
-
-/* 내 화면을 크게 보는 상태 */
-.video-stage.local-main .local-card {
-    inset: 0;
-    width: auto;
-    height: auto;
-    z-index: 1;
-    border: 0;
-    border-radius: 0;
-}
-
-.video-stage.local-main .remote-card {
-    width: 280px;
-    height: 175px;
-    right: 24px;
-    bottom: 24px;
-    inset: auto 24px 24px auto;
-    z-index: 5;
-    border: 2px solid rgba(255, 255, 255, 0.22);
-    border-radius: 24px;
-    box-shadow: 0 16px 42px rgba(0, 0, 0, 0.45);
-    cursor: pointer;
-}
-
-.video-info {
-    position: absolute;
-    left: 18px;
-    bottom: 18px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 9px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.16);
-    border-radius: 999px;
-    color: #f8fafc;
-    font-size: 14px;
-    background: rgba(2, 6, 23, 0.5);
-    backdrop-filter: blur(12px);
-}
-
-.live-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #22c55e;
-    box-shadow: 0 0 14px rgba(34, 197, 94, 0.9);
-}
-
-.my-dot {
-    background: #60a5fa;
-    box-shadow: 0 0 14px rgba(96, 165, 250, 0.9);
-}
-
-.click-guide {
-    position: absolute;
-    right: 18px;
-    bottom: 18px;
-    padding: 8px 11px;
-    border-radius: 999px;
-    font-size: 12px;
-    color: #cbd5e1;
-    background: rgba(2, 6, 23, 0.5);
-    opacity: 0;
-    transform: translateY(6px);
-    transition: 0.2s ease;
-    pointer-events: none;
-}
-
-.video-card:hover .click-guide {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.control-panel {
-    position: absolute;
-    right: 24px;
-    bottom: 215px;
-    z-index: 20;
-}
-
-/* 접힌 상태에서 보이는 작은 버튼 */
-.control-toggle-btn {
-    display: grid;
-    place-items: center;
-    width: 58px;
-    height: 58px;
-    border: 1px solid rgba(148, 163, 184, 0.32);
-    border-radius: 50%;
-    font-size: 24px;
-    color: #f8fafc;
-    background: rgba(15, 23, 42, 0.78);
-    backdrop-filter: blur(16px);
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.42);
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.control-toggle-btn:hover {
-    transform: translateY(-2px) scale(1.03);
-    background: rgba(30, 41, 59, 0.92);
-}
-
-/* 펼쳐진 내용은 기본적으로 숨김 */
-.control-body {
-    position: absolute;
-
-    /* 버튼 위가 아니라 버튼 왼쪽으로 열리게 변경 */
-    right: 72px;
-    bottom: -6px;
-
-    width: 280px;
-    max-height: 460px;
-    overflow-y: auto;
-
-    padding: 14px;
-    border: 1px solid rgba(148, 163, 184, 0.26);
-    border-radius: 22px;
-    background: rgba(15, 23, 42, 0.86);
-    backdrop-filter: blur(20px);
-    box-shadow: 0 22px 65px rgba(0, 0, 0, 0.46);
-
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(10px) scale(0.96);
-    transform-origin: bottom right;
-    transition: 0.22s ease;
-}
-
-/* 열렸을 때 */
-.control-panel.is-open .control-body {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(0) scale(1);
-}
-
-.control-panel.is-open .control-toggle-btn {
-    background: linear-gradient(135deg, rgba(96, 165, 250, 0.85), rgba(167, 139, 250, 0.85));
-}
-
-/* 패널 상단 */
-.control-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 12px;
-    color: #f8fafc;
-}
-
-.control-header strong {
-    font-size: 15px;
-}
-
-.control-close-btn {
-    width: 30px;
-    height: 30px;
-    border: 0;
-    border-radius: 50%;
-    color: #cbd5e1;
-    background: rgba(255, 255, 255, 0.08);
-    font-size: 22px;
-    line-height: 1;
-    cursor: pointer;
-}
-
-.control-close-btn:hover {
-    background: rgba(255, 255, 255, 0.14);
-}
-
-.select-group+.select-group {
-    margin-top: 10px;
-}
-
-.select-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 12px;
-    color: #bfdbfe;
-}
-
-select {
-    width: 100%;
-    height: 38px;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    border-radius: 12px;
-    padding: 0 12px;
-    color: #f8fafc;
-    background: rgba(2, 6, 23, 0.9);
-    outline: none;
-}
-
-.volume-row {
-    display: flex;
-    justify-content: center;
-    gap: 38px;
-    margin: 16px 0 14px;
-}
-
-.vertical-control {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 7px;
-    color: #dbeafe;
-    font-size: 12px;
-}
-
-.vertical-control small {
-    color: #94a3b8;
-    font-size: 11px;
-}
-
-.vertical-range {
-    width: 24px;
-    height: 100px;
-    accent-color: #60a5fa;
-    writing-mode: vertical-lr;
-    direction: rtl;
-    cursor: pointer;
-}
-
-/* 마이크 끄기/켜기 버튼 */
-.audio-button-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-.audio-icon-btn {
-    display: grid;
-    place-items: center;
-    width: 100%;
-    height: 46px;
-    border: 0;
-    border-radius: 16px;
-    font-size: 23px;
-    background: rgba(96, 165, 250, 0.2);
-    color: #f8fafc;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-.audio-icon-btn:hover {
-    background: rgba(96, 165, 250, 0.32);
-}
-
-.audio-icon-btn.is-off {
-    background: rgba(239, 68, 68, 0.25);
-}
-
-@media (max-width: 900px) {
-    .app {
-        padding: 14px;
-    }
-
-    .topbar {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .status {
-        width: 100%;
-    }
-
-    .room-panel {
-        flex-direction: column;
-        align-items: stretch;
-    }
-
-    .video-stage {
-        min-height: 660px;
-    }
-
-    .local-card,
-    .video-stage.local-main .remote-card {
-        width: 180px;
-        height: 115px;
-        right: 16px;
-        bottom: 16px;
-        top: auto;
-    }
-
-    .control-panel {
-        right: 16px;
-        bottom: 146px;
-    }
-
-    .control-body {
-        position: fixed;
-        left: 16px;
-        right: 16px;
-        bottom: 90px;
-
-        width: auto;
-        max-height: calc(100vh - 150px);
-        overflow-y: auto;
-
-        transform: translateY(12px) scale(0.96);
-        transform-origin: bottom right;
-    }
-
-    .control-panel.is-open .control-body {
-        transform: translateY(0) scale(1);
-    }
-
-    .room-actions {
-        width: 100%;
-    }
-
-    .room-actions button {
-        min-width: 0;
-    }
-}
-
-@media (max-width: 520px) {
-    .video-stage {
-        min-height: 620px;
-    }
-
-    .local-card,
-    .video-stage.local-main .remote-card {
-        width: 145px;
-        height: 95px;
-    }
-
-    .control-panel {
-        right: 16px;
-        bottom: 126px;
-    }
-
-    .control-body {
-        left: 12px;
-        right: 12px;
-        bottom: 86px;
-        max-height: calc(100vh - 130px);
-    }
-
-    .video-info {
-        left: 12px;
-        bottom: 12px;
-        font-size: 12px;
-    }
-
-    .click-guide {
-        display: none;
-    }
-}
-
-.mic-icon {
-    position: relative;
-    display: inline-block;
-}
-
-.mic-icon.is-muted::after {
-    content: "";
-    position: absolute;
-    left: -4px;
-    top: 50%;
-    width: 32px;
-    height: 3px;
-    background: #ef4444;
-    border-radius: 999px;
-    transform: rotate(-35deg);
-    transform-origin: center;
-}
-
-.room-actions {
-    display: flex;
-    gap: 10px;
-}
-
-.room-actions button {
-    flex: 1;
-    min-width: 120px;
-}
-
-.leave-btn {
-    height: 44px;
-    border: 1px solid rgba(248, 113, 113, 0.42);
-    border-radius: 14px;
-    padding: 0 24px;
-    color: #fecaca;
-    font-weight: 800;
-    background: rgba(239, 68, 68, 0.16);
-    cursor: pointer;
-    transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
-}
-
-.leave-btn:hover {
-    transform: translateY(-1px);
-    background: rgba(239, 68, 68, 0.26);
-}
-
-.leave-btn:disabled {
-    opacity: 0.45;
-    cursor: not-allowed;
-    transform: none;
-}
-
-#shareScreenBtn {
-    display: block;
-    width: 100%;
-    height: 44px;
-    margin: 0 0 12px;
-    margin-top: 14px;
-    margin-bottom: 4px;
-    border: 1px solid rgba(96, 165, 250, 0.45);
-    border-radius: 14px;
-    color: #f8fafc;
-    font-size: 14px;
-    font-weight: 700;
-    background: rgba(96, 165, 250, 0.2);
-    cursor: pointer;
-    transition: 0.2s ease;
-}
-
-#shareScreenBtn:hover {
-    background: rgba(96, 165, 250, 0.35);
-}
-
-#shareScreenBtn.is-sharing {
-    border-color: rgba(239, 68, 68, 0.55);
-    background: rgba(239, 68, 68, 0.25);
-}
-.screen-share-card {
-    position: absolute;
-    inset: 0;
-    z-index: 15;
-    overflow: hidden;
-    background: #000;
-}
-
-.screen-share-card video {
-    width: 100%;
-    height: 100%;
-
-    /* 공유 화면 전체가 잘리지 않고 보임 */
-    object-fit: contain;
-    object-position: center;
-
-    background: #000;
-}
-
-.screen-share-waiting {
-    position: absolute;
-    inset: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 14px;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(59, 130, 246, 0.2),
-            transparent 50%
-        ),
-        #020617;
-}
-
-.screen-share-waiting strong {
-    font-size: 24px;
-}
-
-.screen-share-waiting p {
-    margin: 0;
-    color: #cbd5e1;
-}
-
-#watchScreenBtn {
-    height: 46px;
-    padding: 0 24px;
-    border: 0;
-    border-radius: 14px;
-
-    color: #020617;
-    font-weight: 800;
-    background: linear-gradient(
-        135deg,
-        #60a5fa,
-        #a78bfa
-    );
-
-    cursor: pointer;
-}
-
-.leave-screen-view-btn {
-    position: absolute;
-    right: 20px;
-    bottom: 20px;
-    z-index: 20;
-
-    height: 42px;
-    padding: 0 18px;
-    border: 1px solid rgba(248, 113, 113, 0.5);
-    border-radius: 14px;
-
-    color: #fecaca;
-    background: rgba(239, 68, 68, 0.25);
-    cursor: pointer;
-}
-
-.screen-share-card[hidden],
-.screen-share-waiting[hidden],
-#screenShareVideo[hidden],
-.leave-screen-view-btn[hidden] {
-    display: none !important;
-}
-
-#screenShareVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center;
-    background: #000;
-}
-
-.screen-share-card {
-    display: block;
-}
-
-.screen-share-card[hidden],
-.screen-share-waiting[hidden],
-#screenShareVideo[hidden],
-.leave-screen-view-btn[hidden] {
-    display: none !important;
-}
-
-body {
-    color: #111827;
-    background: #f3f4f6;
-}
-
-/* 전체 영역 */
 .app {
     width: min(1440px, 100%);
     margin: 0 auto;
     padding: 24px;
 }
 
-/* 상단 헤더 - 로비 카드 느낌 */
+
+/* ==============================
+   상단 헤더
+============================== */
+
 .topbar {
     display: flex;
     justify-content: space-between;
@@ -724,7 +113,7 @@ body {
 
 .eyebrow {
     margin: 0 0 8px;
-    color: #2563eb;
+    color: #002c99;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.16em;
@@ -741,28 +130,29 @@ h1 {
     min-width: 220px;
     margin: 0;
     padding: 12px 16px;
-    border: 1px solid #bfdbfe;
-    border-radius: 999px;
-    color: #1d4ed8;
-    background: #eff6ff;
+    border: 1px solid rgb(0 44 153 / 20%);
+    border-radius: 100px;
+    color: #002c99;
+    background: #f2f3f6;
     font-size: 14px;
     font-weight: 800;
     text-align: center;
-    backdrop-filter: none;
 }
 
-/* 방 정보 영역 */
+
+/* ==============================
+   방 정보 영역
+============================== */
+
 .room-panel {
     display: flex;
     align-items: flex-end;
     gap: 12px;
     margin-bottom: 18px;
     padding: 18px;
-    border: 0;
     border-radius: 24px;
     background: #ffffff;
     box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
-    backdrop-filter: none;
 }
 
 .room-input-wrap {
@@ -797,11 +187,52 @@ select {
 
 #roomInput:focus,
 select:focus {
-    border-color: #2563eb;
+    border-color: #002c99;
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.16);
 }
 
-/* 방 나가기 버튼 */
+.room-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.room-actions button {
+    flex: 1;
+    min-width: 120px;
+}
+
+
+/* ==============================
+   방 입장 버튼
+============================== */
+
+.join-btn {
+    height: 44px;
+    border: 0;
+    border-radius: 14px;
+    padding: 0 24px;
+    color: #ffffff;
+    font-weight: 800;
+    background: #002c99;
+    cursor: pointer;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+}
+
+.join-btn:hover {
+    transform: translateY(-1px);
+}
+
+.join-btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+    transform: none;
+}
+
+
+/* ==============================
+   방 나가기 버튼
+============================== */
+
 .leave-btn {
     height: 44px;
     border: 0;
@@ -811,7 +242,10 @@ select:focus {
     font-weight: 800;
     background: #ef4444;
     cursor: pointer;
-    transition: transform 0.18s ease, opacity 0.18s ease, background 0.18s ease;
+    transition:
+        transform 0.18s ease,
+        opacity 0.18s ease,
+        background 0.18s ease;
 }
 
 .leave-btn:hover {
@@ -825,18 +259,20 @@ select:focus {
     transform: none;
 }
 
-/* 화상 영역 */
+
+/* ==============================
+   화상 영역
+============================== */
+
 .video-stage {
     position: relative;
     min-height: calc(100vh - 250px);
-    border: 0;
     border-radius: 28px;
     overflow: hidden;
     background: #e5e7eb;
     box-shadow: 0 14px 34px rgba(15, 23, 42, 0.12);
 }
 
-/* 영상 카드 */
 .video-card {
     position: absolute;
     overflow: hidden;
@@ -857,13 +293,22 @@ select:focus {
     background: #000;
 }
 
+
+/* ==============================
+   상대방 화면
+============================== */
+
 .remote-card {
     inset: 0;
     z-index: 1;
     border-radius: 0;
 }
 
-/* 내 화면 작은 카드 */
+
+/* ==============================
+   내 화면
+============================== */
+
 .local-card {
     width: 280px;
     height: 175px;
@@ -876,7 +321,9 @@ select:focus {
     cursor: pointer;
 }
 
-/* 내 화면 크게 보기 상태 */
+
+/* 내 화면 크게 보기 */
+
 .video-stage.local-main .local-card {
     inset: 0;
     width: auto;
@@ -889,8 +336,6 @@ select:focus {
 .video-stage.local-main .remote-card {
     width: 280px;
     height: 175px;
-    right: 24px;
-    bottom: 24px;
     inset: auto 24px 24px auto;
     z-index: 5;
     border: 4px solid #ffffff;
@@ -899,7 +344,11 @@ select:focus {
     cursor: pointer;
 }
 
-/* 영상 라벨 */
+
+/* ==============================
+   영상 정보
+============================== */
+
 .video-info {
     position: absolute;
     left: 18px;
@@ -908,7 +357,6 @@ select:focus {
     align-items: center;
     gap: 8px;
     padding: 9px 13px;
-    border: 0;
     border-radius: 999px;
     color: #ffffff;
     font-size: 14px;
@@ -950,7 +398,11 @@ select:focus {
     transform: translateY(0);
 }
 
-/* 오디오 설정 패널 버튼 */
+
+/* ==============================
+   오디오 설정 패널
+============================== */
+
 .control-panel {
     position: absolute;
     right: 24px;
@@ -967,23 +419,25 @@ select:focus {
     border-radius: 50%;
     font-size: 24px;
     color: #ffffff;
-    background: #2563eb;
+    background: #002c99;
     box-shadow: 0 12px 28px rgba(37, 99, 235, 0.38);
     cursor: pointer;
     transition: 0.2s ease;
-    backdrop-filter: none;
 }
 
 .control-toggle-btn:hover {
     transform: translateY(-2px) scale(1.03);
-    background: #1d4ed8;
 }
 
 .control-panel.is-open .control-toggle-btn {
     background: #111827;
 }
 
-/* 오디오 설정창 */
+
+/* ==============================
+   오디오 설정창
+============================== */
+
 .control-body {
     position: absolute;
     right: 72px;
@@ -992,7 +446,6 @@ select:focus {
     max-height: 470px;
     overflow-y: auto;
     padding: 16px;
-    border: 0;
     border-radius: 24px;
     background: #ffffff;
     box-shadow: 0 18px 42px rgba(15, 23, 42, 0.22);
@@ -1001,7 +454,6 @@ select:focus {
     transform: translateX(10px) scale(0.96);
     transform-origin: bottom right;
     transition: 0.22s ease;
-    backdrop-filter: none;
 }
 
 .control-panel.is-open .control-body {
@@ -1038,6 +490,11 @@ select:focus {
     background: #e5e7eb;
 }
 
+
+/* ==============================
+   장치 선택
+============================== */
+
 .select-group + .select-group {
     margin-top: 10px;
 }
@@ -1051,14 +508,15 @@ select:focus {
 
 select {
     height: 40px;
-    border: 1px solid #d1d5db;
     border-radius: 12px;
     padding: 0 12px;
-    color: #111827;
-    background: #f9fafb;
 }
 
-/* 화면 공유 버튼 */
+
+/* ==============================
+   화면 공유 버튼
+============================== */
+
 #shareScreenBtn {
     display: block;
     width: 100%;
@@ -1069,20 +527,20 @@ select {
     color: #ffffff;
     font-size: 14px;
     font-weight: 800;
-    background: #2563eb;
+    background: #002c99;
     cursor: pointer;
     transition: 0.2s ease;
-}
-
-#shareScreenBtn:hover {
-    background: #1d4ed8;
 }
 
 #shareScreenBtn.is-sharing {
     background: #ef4444;
 }
 
-/* 볼륨 영역 */
+
+/* ==============================
+   볼륨 설정
+============================== */
+
 .volume-row {
     display: flex;
     justify-content: center;
@@ -1111,13 +569,17 @@ select {
 .vertical-range {
     width: 24px;
     height: 100px;
-    accent-color: #2563eb;
+    accent-color: #002c99;
     writing-mode: vertical-lr;
     direction: rtl;
     cursor: pointer;
 }
 
-/* 아이콘 버튼 4개 */
+
+/* ==============================
+   오디오 버튼
+============================== */
+
 .audio-button-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1147,7 +609,11 @@ select {
     background: #ef4444;
 }
 
-/* 마이크 사선 */
+
+/* ==============================
+   마이크 음소거 표시
+============================== */
+
 .mic-icon {
     position: relative;
     display: inline-block;
@@ -1166,7 +632,11 @@ select {
     transform-origin: center;
 }
 
-/* 화면 공유 전체 화면 카드 */
+
+/* ==============================
+   화면 공유 영역
+============================== */
+
 .screen-share-card {
     position: absolute;
     inset: 0;
@@ -1192,10 +662,14 @@ select {
     justify-content: center;
     align-items: center;
     gap: 14px;
-    background:
-        radial-gradient(circle, rgba(37, 99, 235, 0.25), transparent 52%),
-        #111827;
     color: #ffffff;
+    background:
+        radial-gradient(
+            circle,
+            rgba(37, 99, 235, 0.25),
+            transparent 52%
+        ),
+        #111827;
 }
 
 .screen-share-waiting strong {
@@ -1214,12 +688,8 @@ select {
     border-radius: 14px;
     color: #ffffff;
     font-weight: 800;
-    background: #2563eb;
+    background: #002c99;
     cursor: pointer;
-}
-
-#watchScreenBtn:hover {
-    background: #1d4ed8;
 }
 
 .leave-screen-view-btn {
@@ -1237,7 +707,9 @@ select {
     cursor: pointer;
 }
 
-/* hidden 기능 유지 */
+
+/* hidden 기능 */
+
 .screen-share-card[hidden],
 .screen-share-waiting[hidden],
 #screenShareVideo[hidden],
@@ -1245,7 +717,11 @@ select {
     display: none !important;
 }
 
-/* 태블릿 */
+
+/* ==============================
+   태블릿 반응형
+============================== */
+
 @media (max-width: 900px) {
     .app {
         padding: 14px;
@@ -1264,6 +740,14 @@ select {
     .room-panel {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .room-actions {
+        width: 100%;
+    }
+
+    .room-actions button {
+        min-width: 0;
     }
 
     .leave-btn {
@@ -1305,7 +789,11 @@ select {
     }
 }
 
-/* 모바일 */
+
+/* ==============================
+   모바일 반응형
+============================== */
+
 @media (max-width: 520px) {
     .app {
         padding: 10px;
