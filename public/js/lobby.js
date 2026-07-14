@@ -79,6 +79,10 @@ function renderRooms(roomsToRender) {
                 }
 
                 if (userType === "student") {
+                    if (room.isOccupied === true) {
+                        alert("방이 가득차서 입장 할 수 없습니다.")
+                        return
+                    }
                     const confirmEnter = confirm(`'${room.title}' 과외방에 참여하시겠습니까?`)
                     if (confirmEnter) {
                         window.location.href = `/room.html?roomId=${room._id}`
