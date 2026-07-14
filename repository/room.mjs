@@ -8,7 +8,8 @@ export async function create(title,nickname, subject, level) {
         nickname,
         subject,
         level,
-        use : true
+        use : true,
+        isOcuupied : false
     }).then((result)=>{
         return getRooms().findOne({_id:result.insertedId})
     })
@@ -42,6 +43,13 @@ export async function changeUse(roomId) {
     ).then((result) => result)
 }
 
+// 방에 사람이 있으면 true
+export async function updateRoomStatus(roomId, isOccupied) {
+    return getRooms().updateOne(
+        { _id: new ObjectId(roomId) },
+        { $set: { isOccupied: isOccupied } }
+    );
+}
 // objectId -> string
 // function mapOptionalPost(room) {
 //     return room ? { ...room, id: room._id.toString() } : room

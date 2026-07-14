@@ -18,6 +18,7 @@ const _token = localStorage.getItem("token")
 
 let currentChannel = "로비"
 let userType = "null"
+let allRooms = []
 
 // 백엔드에서 내 정보 가져오기
 async function fetchUserInfo() {
@@ -52,11 +53,16 @@ function renderRooms(roomsToRender) {
         if (room.use) {
             const roomCard = document.createElement("div")
             roomCard.className = "room-card"
+            
+            roomCard.dataset.roomId = room._id;
+
+            console.log(room.isOccupied)
+            const dotClass = (room.isOccupied === true) ? "red" : "green";
             roomCard.innerHTML = `
                 <div class="room-header">
                     <h2 class="room-title">${room.title}</h2>
                     <div class="room-status">
-                        <span class="status-dot green"></span>
+                        <span class="status-dot ${dotClass}"></span>
                     </div>
                 </div>
                 <div class="host-name">${room.nickname || room.username} 선생님</div>
@@ -65,7 +71,6 @@ function renderRooms(roomsToRender) {
                     <span class="tag level-tag">${room.level}</span>
                 </div>
             `
-
 
             roomCard.addEventListener("click", () => {
                 if (!_token) {
@@ -348,6 +353,20 @@ socket.on("userList", (users) => {
             div.textContent = `${roleBadge} ${u.nickname}`
             userListDiv.appendChild(div)
         });
+    }
+})
+
+socket.on("room-status-changed", ({ roomId, isOccupied }) => {
+
+    const targetRoom = allRooms.find(r => String(r._id) === String(roomId) || String(r.id) === String(roomId))
+    if (targetRoom) {
+        targetRoom.isOccupied = isOccupied
+        
+        if (typeof filterRooms === "function") {
+            filterRooms()
+        } else {
+            renderRooms(allRooms)
+        }
     }
 })
 

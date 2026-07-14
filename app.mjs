@@ -8,6 +8,7 @@ import { connectDB } from "./db/user_database.mjs"
 import authRouter from "./router/auth.mjs"
 import roomRouter from "./router/room.mjs"
 import lobbyRouter from "./router/lobby.mjs"
+import { updateRoomStatus } from "./repository/room.mjs"
 
 const app = express()
 const server = createServer(app)
@@ -117,7 +118,7 @@ io.on("connection", (socket) => {
     // =========================================
     // 방 입장
     // =========================================
-    socket.on("join-room", (receivedRoomId) => {
+    socket.on("join-room", async(receivedRoomId) => {
         const roomId = String(receivedRoomId || "").trim()
 
         if (!roomId) {
@@ -141,13 +142,22 @@ io.on("connection", (socket) => {
         )
 
         // 1:1 방이므로 최대 2명
+
         if (userCount >= 2) {
+
             socket.emit(
+
                 "room-error",
+
                 "방이 가득 찼습니다."
+
             )
+
             return
+
         }
+
+
 
         // 방 입장
         socket.join(roomId)
@@ -179,6 +189,10 @@ io.on("connection", (socket) => {
             socket
                 .to(roomId)
                 .emit("peer-joined")
+
+            await updateRoomStatus(roomId, true)
+            
+            io.emit("room-status-changed", { roomId, isOccupied: true })
 
             console.log(
                 "두 번째 사람 입장:",
@@ -365,7 +379,7 @@ io.on("connection", (socket) => {
     // =========================================
     // 방 나가기
     // =========================================
-    socket.on("leave-room", (done) => {
+    socket.on("leave-room", async(done) => {
         const roomId = socket.data.roomId
 
         if (!roomId) {
@@ -389,6 +403,10 @@ io.on("connection", (socket) => {
             .to(roomId)
             .emit("peer-left")
 
+        await updateRoomStatus(roomId, false)
+        //방이 비거나 자리가 나서 다시 초록색(빈 방)으로 돌아왔음을 로비에 전파
+        io.emit("room-status-changed", { roomId, isOccupied: false })
+        
         // Socket.IO 방 나가기
         socket.leave(roomId)
 
@@ -425,7 +443,8 @@ io.on("connection", (socket) => {
                 .to(roomId)
                 .emit("peer-left")
         }
-
+        
+        io.emit("room-status-changed", { roomId, isOccupied: false })
         console.log("나감:", socket.id)
     })
 })
